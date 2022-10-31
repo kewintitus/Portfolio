@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Skill from './Skill';
-import Image from 'next/image';
 
 type Props = {};
 
@@ -223,7 +222,7 @@ function Skills({}: Props) {
         {/* <Skill svg={ts} directionLeft={true} /> */}
         <Skill svg={csharp} directionLeft={true} />
         {/* <Skill svg={nextjs} directionLeft={true} /> */}
-        <Skill svg={firebase} />
+        <Skill svg={firebase} directionLeft={true} />
       </div>
     </motion.div>
   );

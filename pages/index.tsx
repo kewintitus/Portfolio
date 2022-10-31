@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetServerSideProps, GetStaticProps } from 'next';
 import Head from 'next/head';
 import About from '../components/About';
 import ContactMe from '../components/ContactMe';
@@ -27,7 +27,7 @@ const Home = ({ pageInfo, experiences, socials, projects }: Props) => {
     overflow-x-hidden z-0  scrollbar-track-gray-700/20 scrollbar-thumb-red-700 scrollbar-thin"
     >
       <Head>
-        <title>{pageInfo?.name} Portfolio</title>
+        <title>Kewin Portfolio</title>
         <meta name="description" content="Portfolio website of kewin" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -58,7 +58,7 @@ const Home = ({ pageInfo, experiences, socials, projects }: Props) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetServerSideProps<Props> = async () => {
   const pageInfo: any = await fetchPageInfo();
   const experiences: Experience[] = await fetchExperience();
   const projects: Project[] = await fetchProjects();
@@ -71,6 +71,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       socials,
       projects,
     },
-    revalidate: 10,
   };
 };
